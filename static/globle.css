@@ -1,0 +1,93 @@
+:root {
+    --pp: 1px;
+
+    /* primary colors */
+    --clr-primay-100-val: 61, 70%, 52%; /* Lime */
+    --clr-primay-100:  hsl(var(--clr-primay-100-val)); /* Lime */
+    --clr-primay-100-radiobg:  hsla(var(--clr-primay-100-val), 0.2); /* Lime */
+    --clr-primay-100-button:  hsla(var(--clr-primay-100-val), 0.5); /* Lime */
+    --clr-primay-200:  hsl(4, 69%, 50%); /* Red */
+
+    /* Neutral colors */
+    --clr-neutral-100: hsl(0, 0%, 100%);   /* White */
+    --clr-neutral-200: hsl(202, 86%, 94%); /*Slate 100*/
+    --clr-neutral-300: hsl(203, 41%, 72%); /*Slate 300*/
+    --clr-neutral-400: hsl(200, 26%, 54%); /*Slate 500*/
+    --clr-neutral-500: hsl(200, 24%, 40%); /*Slate 700*/
+    --clr-neutral-600: hsl(202, 55%, 16%); /*Slate 900*/
+    --clr-neutral-700: hsl(202, 56%, 12%); /*Slate 900*/
+
+    /* typography */
+    --f-family: "Plus Jakarta Sans", sans-serif;
+    --f-size: 1rem; /* 16px */
+    --f-weight-medium: 500;
+    --f-weight-bold: 700;
+
+}
+
+@font-face {
+    font-family: "Plus Jakarta Sans";
+    src: url("./fonts/PlusJakartaSans-VariableFont_wght.ttf");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Plus Jakarta Sans";
+    src: url("./fonts/PlusJakartaSans-Italic-VariableFont_wght.ttf");
+    font-style: Italic;
+}
+
+body {
+    font-family: var(--f-family);
+    font-style: normal;
+    font-size: var(--f-size);
+    margin: 0;
+    padding: 0;
+    background-color: var(--clr-neutral-200);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button,
+input[type=number] /* Firefox */ {
+    /* Chrome, Safari, Edge, Opera */
+    -webkit-appearance: none;
+
+    /* Firefox */
+    -moz-appearance: textfield;
+    margin: 0;
+}
+
+legend {
+    padding: 0;
+    display: table;
+}
+fieldset {
+    border: 0;
+    padding: 0.01em 0 0 0;
+    margin: 0;
+    min-width: 0;
+}
+body:not(:-moz-handler-blocked) fieldset {
+    display: table-cell;
+}
+
+button {
+    font-family: inherit;
+}
+
+h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+input[type=text],input[type=number] {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+
+
+@media only screen and (min-width: 69.375em ) /* min-width:  1110px */ {
+
+}

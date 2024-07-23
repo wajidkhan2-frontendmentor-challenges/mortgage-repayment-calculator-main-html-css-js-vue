@@ -1,0 +1,55 @@
+.base-layout {
+    min-height: 100vh;
+    margin: 0;
+    display: grid;
+    /* 
+        grid-template-rows: auto 1fr auto; 
+        header = auto
+        main = 1fr
+        footer = auto
+    */
+    grid-template-rows: 1fr auto;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    /* min-height: 50px; */
+    text-align: center;
+}
+
+.calculator {
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.form-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.row-to-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.field {
+    display: flex;
+    flex-direction: row;
+}
+
+@media only screen and (min-width: 69.375em ) /* min-width:  1110px */ {
+    .calculator {
+        max-width: 1000px;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .row-to-column {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

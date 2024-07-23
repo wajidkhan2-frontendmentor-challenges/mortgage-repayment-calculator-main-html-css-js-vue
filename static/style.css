@@ -1,0 +1,206 @@
+.calculator {
+    background-color: var(--clr-neutral-100);
+    font-weight: var(--f-weight-medium);
+}
+
+.form-section {
+    --field-spacer: 13px;
+    background-color: var(--clr-neutral-100);
+    padding: 20px;
+    color: var(--clr-neutral-500);
+}
+
+.section {
+    margin-block: 20px;
+}
+.row-to-column {
+    gap: 20px;
+}
+
+.heading1 {
+    color: var(--clr-neutral-600);
+}
+
+.heading2 {
+    color: var(--clr-neutral-100);
+}
+
+.clear-btn {
+    background: transparent;
+    border: none;
+    font-weight: var(--f-weight-medium);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    color: var(--clr-neutral-500);
+    font-weight: var(--f-weight-medium);
+}
+
+.field-error { display: none; }
+.when-error[data-error=false] .field-error {
+    display: none;
+}
+.when-error[data-error=true] .field-error {
+    display: block;
+    color: var(--clr-primay-200);
+}
+
+.when-error[data-error=true] .field {
+    border: 1px solid var(--clr-primay-200);
+}
+
+.when-error[data-error=true] .field-icon {
+    background-color: var(--clr-primay-200);
+    color: var(--clr-neutral-100);
+}
+
+
+.field {
+    border: 1px solid var(--clr-neutral-400);
+    border-radius: 5px;
+    overflow: hidden;
+    font-weight: var( --f-weight-bold);
+    margin-block: var(--field-spacer);
+}
+
+.field > .number-field {
+    box-sizing: border-box;
+    width: 100%; 
+    border: none;
+    font-weight: var(--f-weight-bold);
+    color: var(--clr-neutral-600);
+    padding-left: 15px;
+}
+
+
+.field > .field-icon {
+    background-color: var(--clr-neutral-200);
+    padding: 16px;
+}
+
+.radio-fields {
+    margin-bottom: var(--field-spacer);
+}
+
+.radio-field {
+    display: block;
+    border: 1px solid var(--clr-neutral-400);
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 1rem;
+    cursor: pointer;
+    /* position: relative; */
+}
+.radio-field-spacer {
+    margin-block: var(--field-spacer);
+}
+
+.radio-field > input[type=radio] {
+    display: none;
+}
+
+.radio-field > .radio-icon {
+    display: inline-block;
+    border: 2px solid var(--clr-neutral-400);
+    border-radius: 100vh;
+    width: 1rem;
+    height: 1rem;
+    vertical-align: sub;
+    margin-right: 10px;
+    position: relative;
+}
+
+.form-submit-btn {
+    cursor: pointer;
+    display: flex;
+    vertical-align: baseline;
+    align-items: center;
+    font-weight: var(--f-weight-bold);
+    padding: 10px 20px;
+    background-color: var(--clr-primay-100);
+    border: none;
+    gap: 8px;
+    border-radius: 100vh;
+}
+
+.result-section {
+    background-color: var(--clr-neutral-600);
+    padding: 20px ;
+    color: var(--clr-neutral-300);
+    
+
+}
+
+.result-empty {
+    text-align: center;
+}
+
+.result-empty-img {
+    display: block;
+    margin-inline: auto;
+}
+
+.result-heading {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.result-paragraph {
+    margin-bottom: 30px;
+}
+
+.payment {
+    background-color: var(--clr-neutral-700);
+    padding: 15px;
+    border-radius: 5px;
+    border-top: 4px solid var(--clr-primay-100);
+}
+
+.monthly-payment {
+    border-bottom: 2px solid var(--clr-neutral-600);
+    padding-block: 20px;
+}
+
+.total-over-term-payment {
+    padding-block: 20px;
+}
+
+.payment-paragraph {
+    margin-bottom: 10px;
+}
+
+.money-primary {
+    font-size: 30px;
+    color: var(--clr-primay-100);
+}
+
+.money-secondary {
+    font-size: 20px;
+    color: var(--clr-neutral-100);
+}
+
+@media only screen and (min-width: 69.375em ) /* min-width:  1110px */ {
+    .calculator {
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .form-section {
+        padding: 40px;
+    }
+    
+    .result-section {
+        border-bottom-left-radius: 80px;
+        padding: 40px ;
+        display: flex;
+    }
+
+    .result-empty {
+        margin-block: auto;
+    }
+
+    .money-primary {
+        font-size: 50px;
+    }
+   
+}

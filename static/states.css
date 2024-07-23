@@ -1,0 +1,47 @@
+.field > .number-field:focus {
+    outline: 0;
+}
+
+.field:hover {
+    border: 1px solid var(--clr-neutral-600);
+}
+
+.field:has(.number-field:focus) {
+    /* outline: 2px solid var(); */
+    border: 1px solid var(--clr-primay-100);
+}
+
+.field:has(.number-field:focus) span {
+    background-color: var(--clr-primay-100);
+}
+
+
+
+.radio-field:has(input[type=radio]:checked) {
+    border-color: var(--clr-primay-100);
+    background-color: var(--clr-primay-100-radiobg);
+}
+
+.radio-field:has(input[type=radio]:checked) > .radio-icon{
+    border-color: var(--clr-primay-100);
+}
+
+.radio-field:has(input[type=radio]:checked) > .radio-icon::before{
+    content: '';
+    display: inline-block;
+    /* border: 2px solid var(--clr-primay-100); */
+    background-color: var(--clr-primay-100);
+    border-radius: 100vh;
+    width:  0.5rem;
+    height: 0.5rem;
+    vertical-align: sub;
+    margin-right: 10px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form-submit-btn:hover {
+    background-color: var(--clr-primay-100-button);
+}

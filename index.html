@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./static/globle.css">
+  <link rel="stylesheet" href="./static/layout.css">
+  <link rel="stylesheet" href="./static/style.css">
+  <link rel="stylesheet" href="./static/states.css">
+  
+  
+  <title>Frontend Mentor | Mortgage repayment calculator</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+
+</head>
+<body>
+
+	<div class="base-layout">
+		<!-- <header ></header> -->
+		<main class="main">
+			<section class="calculator">
+				<div class="form-section">
+
+					<div class="form-top">
+						<h1 class="calculator-title heading1">Mortgage Calculator</h1>
+						<button class="clear-btn">Clear All</button>
+					</div>
+					
+					<form action="#">
+
+						<div class="section when-error" data-error="false">
+							<label for="input-mortgage-amount">Mortgage Amount</label>
+							<div class="field">
+								<span class="field-icon">£</span>
+								<input class="number-field" type="number" id="input-mortgage-amount">
+							</div>
+							<p class="field-error">This field is required</p>
+						</div>
+
+						<div class="section row-to-column">
+
+							<div class="child when-error" data-error="false">
+								<label for="input-mortgage-amount">Mortgage Term</label>
+								<div class="field">
+									<input class="number-field" type="number" id="input-mortgage-amount">
+									<span class="field-icon">years</span>
+								</div>
+								<p class="field-error">This field is required</p>
+							</div>
+
+							<div class="child when-error" data-error="false">
+								<label for="input-mortgage-amount">Interest Rate</label>
+								<div class="field">
+									<input class="number-field" type="number" id="input-mortgage-amount">
+									<span class="field-icon">%</span>
+								</div>
+								<p class="field-error">This field is required</p>
+							</div>
+							
+						</div>
+
+						<div class="section when-error" data-error="false">
+							<fieldset class="radio-fields">
+								<legend class="radio-fields-label">Mortgage Type</legend>
+
+								<label class="radio-field radio-field-spacer" for="Repaymentradio">
+									<span class="radio-icon" aria-hidden="true"></span>
+									<input type="radio" name="MortgageType" id="Repaymentradio">
+									Repayment
+								</label>
+
+								<label class="radio-field" for="InterestOnlyradio">
+									<span class="radio-icon" aria-hidden="true"></span>
+									<input  type="radio" name="MortgageType" id="InterestOnlyradio">
+									Interest Only
+								</label>
+							</fieldset>
+							<p class="field-error">This field is required</p>
+						</div>
+
+						<button class="form-submit-btn">
+							<img src="./static/images/icon-calculator.svg" alt="" aria-hidden="true">
+							Calculate Repayments
+						</button>
+					</form>
+				</div>
+
+				<div class="result-section">
+
+					<!-- <div class="result-empty">
+						<img class="result-empty-img" src="./static/images/illustration-empty.svg" alt="">
+						<h2 class="result-heading heading2">Results shown here</h2>
+						<p class="result-paragraph paragraph"> 
+							Complete the form and click “calculate repayments” to see what 
+							your monthly repayments would be.
+						</p>
+					</div> -->
+
+					<div class="result-complete">
+						<h2 class="result-heading heading2">Your results</h2>
+
+						<p class="result-paragraph paragraph">
+							Your results are shown below based on the information you provided. 
+							To adjust the results, edit the form and click “calculate repayments” again.
+						</p>
+
+						<div class="payment">
+
+							<div class="monthly-payment">
+								<p class="payment-paragraph paragraph">Your monthly repayments</p>
+								<strong class="money-primary">
+									£1,797.74
+								</strong>
+							</div>
+
+							<div class="total-over-term-payment">
+								<p class="payment-paragraph paragraph">Total you'll repay over the term</p>
+								<strong class="money-secondary">
+									£539,322.95
+								</strong>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</section>
+		</main>
+
+		<footer class="footer">
+			Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+			Coded by <a href="#">Your Name Here</a>.
+		</footer>
+	</div>
+
+</body>
+</html>
