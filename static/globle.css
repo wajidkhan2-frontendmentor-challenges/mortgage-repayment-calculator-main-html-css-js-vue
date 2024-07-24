@@ -73,7 +73,9 @@ body:not(:-moz-handler-blocked) fieldset {
 }
 
 button {
+    font-size: inherit;
     font-family: inherit;
+    color: inherit;
 }
 
 h1, h2, p {
@@ -84,6 +86,8 @@ h1, h2, p {
 input[type=text],input[type=number] {
     font-family: inherit;
     font-size: inherit;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 

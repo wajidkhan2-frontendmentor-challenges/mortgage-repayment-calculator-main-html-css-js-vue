@@ -1,3 +1,8 @@
+
+.clear-btn:hover, .clear-btn:active  {
+    color: var(--clr-neutral-600);
+}
+
 .field > .number-field:focus {
     outline: 0;
 }
@@ -14,6 +19,7 @@
 .field:has(.number-field:focus) span {
     background-color: var(--clr-primay-100);
 }
+
 
 
 
@@ -42,6 +48,28 @@
     transform: translate(-50%, -50%);
 }
 
-.form-submit-btn:hover {
+.field-error { display: none; }
+.when-error[data-error=false] .field-error {
+    display: none;
+}
+.when-error[data-error=true] .field-error {
+    display: block;
+    color: var(--clr-primay-200);
+}
+
+.when-error[data-error=true] .field {
+    border: 1px solid var(--clr-primay-200);
+}
+
+.when-error[data-error=true] .field-icon {
+    background-color: var(--clr-primay-200);
+    color: var(--clr-neutral-100);
+}
+
+.radio-field:hover {
+    border-color: var(--clr-primay-100);
+}
+
+.form-submit-btn:hover, .form-submit-btn:active {
     background-color: var(--clr-primay-100-button);
 }
