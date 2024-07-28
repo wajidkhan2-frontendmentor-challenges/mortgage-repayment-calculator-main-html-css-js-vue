@@ -97,11 +97,16 @@
     cursor: pointer;
     font-weight: var(--f-weight-bold);
     color: var(--clr-neutral-600);
-    /* position: relative; */
+    position: relative;
 }
 
 .radio-fields > .radio-field > input[type=radio] {
-    display: none;
+    /* display: none; */
+    height: 0;
+    width: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
 }
 
 .radio-field > .radio-icon {

@@ -23,7 +23,7 @@
 
 
 
-.radio-field:has(input[type=radio]:checked) {
+.radio-field:has(input[type=radio]:checked), .radio-field:has(input[type=radio]:focus) {
     border-color: var(--clr-primay-100);
     background-color: var(--clr-primay-100-radiobg);
 }

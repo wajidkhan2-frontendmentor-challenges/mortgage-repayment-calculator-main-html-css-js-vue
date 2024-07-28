@@ -21,40 +21,42 @@
 	<div class="base-layout">
 		<!-- <header ></header> -->
 		<main class="main">
-			<section class="calculator">
+			<section class="calculator" id="app">
 				<div class="form-section">
 
 					<div class="form-top">
-						<h1 class="calculator-title heading1">Mortgage Calculator</h1>
-						<button class="btn-reset clear-btn">Clear All</button>
+						
+						<h1 class="calculator-title heading1">Mortgage Calculator </h1>
+						<button class="btn-reset clear-btn" v-on:click="oninputClear">Clear All</button>
+						
 					</div>
 					
-					<form action="#">
+					<form action="#" v-on:submit="formSubmit">
 
-						<div class="section when-error" data-error="false">
+						<div class="section when-error" v-bind:data-error="loanError">
 							<label for="input-mortgage-amount">Mortgage Amount</label>
 							<div class="field">
 								<span class="field-icon">£</span>
-								<input class="number-field" type="number" id="input-mortgage-amount">
+								<input class="number-field" type="number" id="input-mortgage-amount" aria-describedby="trash-desc" ref="loanref" v-bind:value="loan"  v-on:input="oninputLoan">
 							</div>
-							<p class="field-error">This field is required</p>
+							<p class="field-error" id="trash-desc">This field is required</p>
 						</div>
 
 						<div class="section row-to-column">
 
-							<div class="child when-error" data-error="false">
-								<label for="input-mortgage-amount">Mortgage Term</label>
+							<div class="child when-error" v-bind:data-error="termError">
+								<label for="input-mortgage-term">Mortgage Term</label>
 								<div class="field">
-									<input class="number-field" type="number" id="input-mortgage-amount">
+									<input class="number-field" type="number" id="input-mortgage-term" ref="termref" v-bind:value="term" v-on:input="oninputTerm">
 									<span class="field-icon">years</span>
 								</div>
 								<p class="field-error">This field is required</p>
 							</div>
 
-							<div class="child when-error" data-error="false">
-								<label for="input-mortgage-amount">Interest Rate</label>
+							<div class="child when-error" v-bind:data-error="interestError">
+								<label for="input-mortgage-interest">Interest Rate</label>
 								<div class="field">
-									<input class="number-field" type="number" id="input-mortgage-amount">
+									<input class="number-field" type="number" step="0.01" id="input-mortgage-interest" ref="interestref" v-bind:value="interest" v-on:input="oninputInterest">
 									<span class="field-icon">%</span>
 								</div>
 								<p class="field-error">This field is required</p>
@@ -62,19 +64,19 @@
 							
 						</div>
 
-						<div class="section when-error" data-error="false">
+						<div class="section when-error" v-bind:data-error="Mortgage_TypeError">
 							<fieldset class="radio-fields">
 								<legend class="radio-fields-label">Mortgage Type</legend>
 
 								<label class="radio-field radio-field-spacer" for="Repaymentradio">
+									<input type="radio" name="MortgageType" id="Repaymentradio" ref="Repaymentradioref" value="Repayment" v-on:change="oninputMortgageType">
 									<span class="radio-icon" aria-hidden="true"></span>
-									<input type="radio" name="MortgageType" id="Repaymentradio">
 									Repayment
 								</label>
 
 								<label class="radio-field" for="InterestOnlyradio">
+									<input  type="radio" name="MortgageType" id="InterestOnlyradio" ref="InterestOnlyradioref" value="InterestOnly" v-on:change="oninputMortgageType">
 									<span class="radio-icon" aria-hidden="true"></span>
-									<input  type="radio" name="MortgageType" id="InterestOnlyradio">
 									Interest Only
 								</label>
 							</fieldset>
@@ -90,16 +92,19 @@
 
 				<div class="result-section">
 
-					<div class="result-empty" >
+					<div class="result-empty"  v-if="result_window">
 						<img class="result-empty-img" src="./static/images/illustration-empty.svg" alt="">
-						<h2 class="result-heading heading2">Results shown here</h2>
+						<h2 class="result-heading heading2">
+							<!-- Results shown here -->
+							
+						</h2>
 						<p class="result-empty-paragraph paragraph"> 
 							Complete the form and click “calculate repayments” to see what 
 							your monthly repayments would be.
 						</p>
 					</div>
 
-					<div class="result-complete" style="display: none;">
+					<div class="result-complete" v-else>
 						<h2 class="result-heading heading2">Your results</h2>
 
 						<p class="result-paragraph paragraph">
@@ -112,14 +117,16 @@
 							<div class="monthly-payment">
 								<p class="payment-paragraph paragraph">Your monthly repayments</p>
 								<strong class="money-primary">
-									£1,797.74
+									<!-- £1,797.74 -->
+									{{ monthly_repayments }}
 								</strong>
 							</div>
 
 							<div class="total-over-term-payment">
 								<p class="payment-paragraph paragraph">Total you'll repay over the term</p>
 								<strong class="money-secondary">
-									£539,322.95
+									<!-- £539,322.95 -->
+									{{ Total_repay_over_term }}
 								</strong>
 							</div>
 
@@ -136,5 +143,6 @@
 		</footer>
 	</div>
 
+	<script type="module" src="./static/Vueapp/app.js"></script>
 </body>
 </html>
