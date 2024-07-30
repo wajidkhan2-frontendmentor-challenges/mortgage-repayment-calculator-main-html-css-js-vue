@@ -33,6 +33,19 @@ createApp({
     // },
 
     methods: {
+
+        handlesrnavigation(e) {
+            e.preventDefault();
+            console.log(e.keyCode)
+            // if (e.keyCode === 76) { // 76 is key L
+            if (e.keyCode === 13) { // 13 is key Enter
+                let a = document.createElement('a');
+                a.href = "#input-mortgage-amount";
+                a.click()
+                // alert('Enter was pressed');
+            }
+        },
+
         oninputClear(e) {
             this.result_window = true;
 
@@ -72,32 +85,64 @@ createApp({
             this.Mortgage_Type = e.target.value
         },
 
+        
+
         formSubmit(e) {
             e.preventDefault();
 
-            let Cerror = 0
+            let ErrorMap = new Map();
+            let ErrorCounter = 0;
+
             if (this.loan == null) {
+
                 this.loanError = true;
-                Cerror += 1;
+
+                ErrorCounter += 1;
+
+                ErrorMap.set("Mortgage Amount", {
+                    inpid: "#input-mortgage-amount", for: "Mortgage Amount", errormsg: "Mortgage Amount is required"
+                });
+
             } else { this.loanError = false; }
 
             if (this.term == null) {
+
                 this.termError = true;
-                Cerror += 1;
+
+                ErrorCounter += 1;
+
+                ErrorMap.set("Mortgage Term", {
+                    inpid: "#input-mortgage-term", for: "Mortgage Term", errormsg: "Mortgage Term is required"
+                });
+
             } else { this.termError = false; }
 
             if (this.interest == null) {
+
                 this.interestError = true;
-                Cerror += 1;
+                
+                ErrorCounter += 1;
+
+                ErrorMap.set("Interest Rate", {
+                    inpid: "#input-mortgage-interest", for: "Interest Rate", errormsg: "Interest Rate is required"
+                });
+
             } else { this.interestError = false; }
 
             if (this.Mortgage_Type == null) {
+
                 this.Mortgage_TypeError = true;
-                Cerror += 1;
+
+                ErrorCounter += 1;
+
+                ErrorMap.set("Mortgage Type", {
+                    inpid: "#Repaymentradio", for: "Mortgage Type", errormsg: "Mortgage Type is required"
+                });
+
             } else { this.Mortgage_TypeError = false; }
             
 
-            if (Cerror == 0){
+            if (ErrorCounter == 0){
                 if (this.Mortgage_Type == 'Repayment')
                 {
                     this.Repayments()
@@ -108,18 +153,35 @@ createApp({
                     this.InterestOnly()
                 }
                 this.result_window = false;
-            }           
+            } else {
+                let errorstring = "";
+                ErrorMap.forEach(function(value, key, map) {
+                    errorstring += `<li><a href="${value.inpid}" data-srfocus="${value.inpid}" >${value.errormsg}</a></li>`
+                });
+
+                this.$refs.ErrorList.innerHTML = `
+                    <h2>please fix errors</h2>
+                    <ul id="error-message-list">
+                    ${errorstring}
+                    </ul>
+                `;
+
+                this.$refs.ErrorList.focus()
+            }          
         },
 
         Repayments() {
-            let loan = this.loan;
-            let term = this.term;
-            let interest = this.interest;
+            // Principal loan amount
+            let P = this.loan;
 
-            let P = loan;
-            let R = interest/100;
+            // annual interest rate
+            let R = this.interest / 100;
+
+            // number of payment made every year
             let N = 12;
-            let T = term;
+
+            // term of loan
+            let T = this.term;
 
             let divident = P*(R/N);
 
@@ -139,15 +201,17 @@ createApp({
         },
 
         InterestOnly() {
-            let loan = this.loan;
-            let term = this.term;
-            let interest = this.interest;
+            // Principal loan amount
+            let P = this.loan;
 
-            let P = loan;
-            let R = interest/100;
+            // annual interest rate
+            let R = this.interest / 100;
+
+            // number of payment made every year
             let N = 12;
-            let T = term;
 
+            // term of loan
+            let T = this.term;
 
             let RR = R / 12;
 

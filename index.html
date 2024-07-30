@@ -19,11 +19,14 @@
 <body>
 
 	<div class="base-layout">
+		
 		<!-- <header ></header> -->
 		<main class="main">
 			<section class="calculator" id="app">
-				<div class="form-section">
 
+				<div id="error-list" class="sr-only" tabindex="-1" ref="ErrorList"></div>
+				<!-- <a href="#input-mortgage-amount" v-on:keyup.prevent="handlesrnavigation">tester</a> -->
+				<div class="form-section">
 					<div class="form-top">
 						
 						<h1 class="calculator-title heading1">Mortgage Calculator </h1>
@@ -65,8 +68,8 @@
 						</div>
 
 						<div class="section when-error" v-bind:data-error="Mortgage_TypeError">
-							<fieldset class="radio-fields">
-								<legend class="radio-fields-label">Mortgage Type</legend>
+							<fieldset class="radio-fields" role="radiogroup"  aria-labelledby="Mortgage Type-label">
+								<legend class="radio-fields-label" id="Mortgage Type-label">Mortgage Type</legend>
 
 								<label class="radio-field radio-field-spacer" for="Repaymentradio">
 									<input type="radio" name="MortgageType" id="Repaymentradio" ref="Repaymentradioref" value="Repayment" v-on:change="oninputMortgageType">
