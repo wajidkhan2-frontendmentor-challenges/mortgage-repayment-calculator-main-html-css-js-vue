@@ -1,5 +1,3 @@
-// import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
-// import { createApp } from 'http://127.0.0.1:5500/mortgage-repayment-calculator-main/static/Vueapp/vue@3/vue.esm-browser.js'
 import { createApp } from './vue@3/vue.esm-browser.js'
 
 createApp({
@@ -7,11 +5,6 @@ createApp({
         return {
             result_window: true,
 
-            // Mortgage_Type: 'Repayment',
-            // loan: 300000,
-            // term: 25,
-            // interest: 5.25,
-            
             loan: null,
             term: null,
             interest: null,
@@ -32,18 +25,6 @@ createApp({
     // },
 
     methods: {
-
-        // handlesrnavigation(e) {
-        //     e.preventDefault();
-        //     console.log(e.keyCode)
-        //     // if (e.keyCode === 76) { // 76 is key L
-        //     if (e.keyCode === 13) { // 13 is key Enter
-        //         let a = document.createElement('a');
-        //         a.href = "#input-mortgage-amount";
-        //         a.click()
-        //         // alert('Enter was pressed');
-        //     }
-        // },
 
         oninputClear(e) {
             this.result_window = true;
