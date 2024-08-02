@@ -12,7 +12,6 @@ createApp({
             // term: 25,
             // interest: 5.25,
             
-
             loan: null,
             term: null,
             interest: null,
@@ -34,17 +33,17 @@ createApp({
 
     methods: {
 
-        handlesrnavigation(e) {
-            e.preventDefault();
-            console.log(e.keyCode)
-            // if (e.keyCode === 76) { // 76 is key L
-            if (e.keyCode === 13) { // 13 is key Enter
-                let a = document.createElement('a');
-                a.href = "#input-mortgage-amount";
-                a.click()
-                // alert('Enter was pressed');
-            }
-        },
+        // handlesrnavigation(e) {
+        //     e.preventDefault();
+        //     console.log(e.keyCode)
+        //     // if (e.keyCode === 76) { // 76 is key L
+        //     if (e.keyCode === 13) { // 13 is key Enter
+        //         let a = document.createElement('a');
+        //         a.href = "#input-mortgage-amount";
+        //         a.click()
+        //         // alert('Enter was pressed');
+        //     }
+        // },
 
         oninputClear(e) {
             this.result_window = true;
@@ -67,6 +66,8 @@ createApp({
             this.termError = false;
             this.interestError = false;
             this.Mortgage_TypeError = false;
+
+            this.$refs.ErrorList.innerHTML = '';
         },
 
         oninputLoan(e) {
@@ -152,7 +153,11 @@ createApp({
                 {
                     this.InterestOnly()
                 }
+
                 this.result_window = false;
+
+                this.$refs.MortgageRepayments.focus();
+
             } else {
                 let errorstring = "";
                 ErrorMap.forEach(function(value, key, map) {

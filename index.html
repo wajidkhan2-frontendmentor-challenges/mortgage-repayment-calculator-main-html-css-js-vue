@@ -17,7 +17,6 @@
 
 </head>
 <body>
-
 	<div class="base-layout">
 		
 		<!-- <header ></header> -->
@@ -25,16 +24,17 @@
 			<section class="calculator" id="app">
 
 				<div id="error-list" class="sr-only" tabindex="-1" ref="ErrorList"></div>
-				<!-- <a href="#input-mortgage-amount" v-on:keyup.prevent="handlesrnavigation">tester</a> -->
+
 				<div class="form-section">
 					<div class="form-top">
 						
 						<h1 class="calculator-title heading1">Mortgage Calculator </h1>
-						<button class="btn-reset clear-btn" v-on:click="oninputClear">Clear All</button>
+						<button class="btn-reset clear-btn" aria-labelledby="clear-btn-describ" v-on:click="oninputClear">Clear All</button>
+						<p id="clear-btn-describ" hidden>reset form and result</p>
 						
 					</div>
 					
-					<form action="#" v-on:submit="formSubmit">
+					<form action="#" v-on:submit="formSubmit" tabindex="0" aria-label="Mortgage Calculator form">
 
 						<div class="section when-error" v-bind:data-error="loanError">
 							<label for="input-mortgage-amount">Mortgage Amount</label>
@@ -93,13 +93,12 @@
 					</form>
 				</div>
 
-				<div class="result-section">
+				<div class="result-section" ref="MortgageRepayments" tabindex="0">
 
 					<div class="result-empty"  v-if="result_window">
 						<img class="result-empty-img" src="./static/images/illustration-empty.svg" alt="">
 						<h2 class="result-heading heading2">
-							<!-- Results shown here -->
-							
+							Results shown here
 						</h2>
 						<p class="result-empty-paragraph paragraph"> 
 							Complete the form and click “calculate repayments” to see what 
@@ -107,7 +106,7 @@
 						</p>
 					</div>
 
-					<div class="result-complete" v-else>
+					<div class="result-complete"  v-else>
 						<h2 class="result-heading heading2">Your results</h2>
 
 						<p class="result-paragraph paragraph">
